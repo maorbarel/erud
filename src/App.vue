@@ -1,32 +1,32 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <appHeader/>
+    <v-main> 
+      <router-view class="main"/>
+      <dialogs/>
+    </v-main>
+  </v-app>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+const appHeader = () => import('./global/appHeader/appHeader.vue');
+const dialogs = () => import('./global/dialogs/dialogs.vue');
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  name: 'App',
+  components:{
+    appHeader,
+    dialogs
   }
-}
+};
+</script>
+
+<style lang="less">
+  html{
+    overflow-y: auto !important;
+  }
+  .main{
+    background: linear-gradient(110deg,  #F3F8FE 40%, rgba(0, 0, 0, 0) 30%), radial-gradient(farthest-corner at 0% 0%, white 70%,  #E6F3FF 70%);
+    height: 100%;
+  }
 </style>

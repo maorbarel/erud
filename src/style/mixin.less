@@ -1,0 +1,19 @@
+.giveMeEllipsis(@lines, @line-height,@type:px) {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: @lines; /* number of lines to show */
+   line-height: unit(@line-height, @type); /* fallback */
+   max-height: unit((@lines*@line-height), @type); /* fallback */
+}
+
+.pageWrapper(){
+   max-width: 1600px;
+}
+// BreakPoints
+@screen-xs: 600px;
+
+// Colors
+@green:#00C876;
+@bluePurple:#014C81;
